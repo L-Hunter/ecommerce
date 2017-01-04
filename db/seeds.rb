@@ -20,11 +20,11 @@
 
 # end
 
-20.times do
-	pname = Faker::Commerce.product_name
-	price = Faker::Commerce.price
-	image = Faker::LoremPixel.image
+# 20.times do
+# 	pname = Faker::Commerce.product_name
+# 	price = Faker::Commerce.price
+# 	image = Faker::LoremPixel.image
 
-	Product.create(pname: pname, price: price, image: image)
+# 	Product.create(pname: pname, price: price, image: image)
 
-end
+# end

@@ -1,0 +1,12 @@
+<h1>Users Index: All Users</h1>
+
+<% @users.each do |user| %>
+	<h4><%= user.fname %>
+	<%= user.lname %></h4>
+	<p>Email Stuff: <%= user.email %>
+	<%= user.password %></p>
+	<p>Credit Card Info: <%= user.ccnum %>
+	<%= user.cctype %></p>
+	<p>Address: <%= user.street %>,
+	<%= user.city %></p>
+<% end %>

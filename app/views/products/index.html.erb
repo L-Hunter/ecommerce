@@ -1,0 +1,7 @@
+<h1>Products Index: All Products</h1>
+
+<% @products.each do |product| %>
+	<h4><%= product.pname %></h4>
+	<p>Price: $<%= product.price %></p>
+	<img src="<%= product.image %>">
+<% end %>
