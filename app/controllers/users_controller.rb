@@ -15,6 +15,8 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def create
     @user = User.create(user_params)
+    Wishlist.create(user_id: @user.id)
+    Cart.create(user_id: @user.id)
     redirect_to @user
   end
 
@@ -27,6 +29,7 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
   end
 
   def destroy
+    @user.destroy
   end
 
 private

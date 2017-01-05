@@ -1,7 +1,11 @@
-<h1>Products Index: All Products</h1>
+<h2>Products Index: All Products</h2>
 
 <% @products.each do |product| %>
+	<div style="float:left;padding:5px">
 	<h4><%= product.pname %></h4>
 	<p>Price: $<%= product.price %></p>
 	<img src="<%= product.image %>">
+	<p><a href="/wishlist">Add to Wishlist</a>
+	<a href="/cart">Buy it!</a></p>
+	</div>
 <% end %>
