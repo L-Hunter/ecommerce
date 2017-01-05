@@ -1,0 +1,10 @@
+<h2>Welcome, <%= @user.fname %>!</h2>
+<p>User show</p>
+<p>Display editable form information</p>
+<p>Link to log out</p>
+
+<% if @current_user %>
+	<%= form_tag '/sessions/destroy' do%>
+	<%= submit_tag ("Log Out") %>
+	<% end %>
+<% end %>

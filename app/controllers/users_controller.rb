@@ -4,9 +4,13 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @users = User.all
+    # current_user = User.find(session[:user_id])
   end
 
   def show
+    @current_user = User.find(session[:user_id])
+    @wishlist = User.wishlist
+    @cart = User.cart
   end
 
   def new
