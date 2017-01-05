@@ -32,7 +32,7 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
 private
 
   def product_params
-    params.require(:user).permit(:fname, :lname, :email, :password, :ccnum, :cctype, :street, :city)
+    params.require(:user).permit(:pname, :price, :image)
   end
 
   def set_product
