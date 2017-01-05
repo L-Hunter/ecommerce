@@ -1,4 +1,24 @@
-<h1>Users Index: All Users</h1>
+<h2>Your Account</h2>
+<p><a href="<%= @current_user %>">See your profile.</a></p>
+
+<h2>Log in to your account</h2>
+
+<%=form_tag "/sessions" do %>
+    <%=label_tag (:email)%>
+    <%=text_field_tag (:email)%><br>
+
+    <%=label_tag (:password)%>
+    <%=text_field_tag (:password)%><br>
+
+    <%=submit_tag ("Log In")%>
+
+<% end %>
+
+<h2>New User?</h2>
+<p>Sign up <a href="/users/new">here</a>!</p>
+
+
+<h2>Users Index: All Users</h2>
 
 <% @users.each do |user| %>
 	<h4><%= user.fname %>

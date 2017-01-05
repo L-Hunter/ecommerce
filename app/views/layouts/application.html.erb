@@ -14,6 +14,12 @@
   <a href="/users">View All Users</a>
   <a href="/wishlists">Wishlist</a>
   <a href="/carts">Shopping Cart</a>
+
     <%= yield %>
+
+    <% if current_user %>
+    	<a href="/users/<%= "#{session[:user_id]}" %> ">Your Profile Maybe</a>
+    <% end %>
+
   </body>
 </html>
