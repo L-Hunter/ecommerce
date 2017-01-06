@@ -33,6 +33,7 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def destroy
     @user.destroy
+    redirect_to '/'
   end
 
 private

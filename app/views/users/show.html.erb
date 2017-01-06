@@ -17,7 +17,7 @@
 	
 	<p><a href='/users/<%= "#{session[:user_id]}" %>/edit'>Edit your info</a></p>
 
-
+<h3>Your Cart</h3>
 <% @cart.products.each do |product| %>
 	<%= product.pname %>
 	<%= product.price %>

@@ -5,7 +5,13 @@
 	<h4><%= product.pname %></h4>
 	<p>Price: $<%= product.price %></p>
 	<img src="<%= product.image %>">
+	
 	<p><a href="/wishlist">Add to Wishlist</a>
-	<a href="/cart">Buy it!</a></p>
+	
+	<%= form_tag '/carts/add_to_cart' do %>
+	<%= hidden_field_tag :product_id, product.id %>
+	<%= submit_tag ("Add to Cart")%>
+	<% end %>
+	
 	</div>
 <% end %>

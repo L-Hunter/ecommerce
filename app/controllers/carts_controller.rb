@@ -7,7 +7,6 @@ before_action :set_cart, only: [:show, :edit, :update, :destroy]
   end
 
   def show
-    @cart = @user.cart
   end
 
   def new
@@ -35,23 +34,25 @@ before_action :set_cart, only: [:show, :edit, :update, :destroy]
   def add_to_cart
     @user = User.find(session[:user_id])
     @product = Product.find(params[:product_id])
-    @user.order.products.push(@product)
-    redirect_to @user.order
+    @user.cart.products.push(@product)
+    redirect_to @user.cart
   end
 
   def delete_from_cart
     @user = User.find(session[:user_id])
     @product = Product.find(params[:product_id])
-    @user.order.products.delete(@product)
-    redirect_to @user.order
+    @user.cart.products.delete(@product)
+    redirect_to @user.cart
   end
 
 private
 
   def cart_params
-    params.require(:user).permit(:user_id, product_id)
+    params.require(:user).permit(:user_id, :product_id)
   end
 
-  def set_user
-    @user = User.find(params[:id])
+  def set_cart
+    @cart = Cart.find(params[:id])
   end
+
+end

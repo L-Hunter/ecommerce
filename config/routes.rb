@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   	root "products#index"
  
  	post '/sessions/destroy'
+
+ 	post '/carts/add_to_cart'
 end
