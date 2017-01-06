@@ -1,1 +1,5 @@
 <h2>I'm the wishlist!</h2>
+
+<% if !current_user %>
+  <a href="/users">Log in to see your wishlist!</a>
+<% end %>

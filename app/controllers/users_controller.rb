@@ -8,9 +8,8 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
   end
 
   def show
-    @current_user = User.find(session[:user_id])
-    @wishlist = User.wishlist
-    @cart = User.cart
+    @wishlist = @user.wishlist
+    @cart = @user.cart
   end
 
   def new

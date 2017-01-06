@@ -1,10 +1,27 @@
 <h2>Welcome, <%= @user.fname %>!</h2>
-<p>User show</p>
 <p>Display editable form information</p>
-<p>Link to log out</p>
 
 <% if current_user %>
 	<%= form_tag '/sessions/destroy' do%>
 	<%= submit_tag ("Log Out") %>
 	<% end %>
+
+	<h4><%= @user.fname %>
+	<%= @user.lname %></h4>
+	<p>Email Stuff: <%= @user.email %>
+	<%= @user.password %></p>
+	<p>Credit Card Info: <%= @user.ccnum %>
+	<%= @user.cctype %></p>
+	<p>Address: <%= @user.street %>,
+	<%= @user.city %></p>
+	
+	<p><a href='/users/<%= "#{session[:user_id]}" %>/edit'>Edit your info</a></p>
+
+
+<% @cart.products.each do |product| %>
+	<%= product.pname %>
+	<%= product.price %>
+	<img src="<%= product.image %>">
+<% end %>
+
 <% end %>

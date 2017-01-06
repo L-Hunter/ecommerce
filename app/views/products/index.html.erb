@@ -1,5 +1,5 @@
 <h2>Products Index: All Products</h2>
-
+<h3>Search box here</h3>
 <% @products.each do |product| %>
 	<div style="float:left;padding:5px">
 	<h4><%= product.pname %></h4>
@@ -9,6 +9,3 @@
 	<a href="/cart">Buy it!</a></p>
 	</div>
 <% end %>
-
-<h2>Your Account</h2>
-<p><a href="/users/<%= @user_id %>">See your profile.</a></p>
