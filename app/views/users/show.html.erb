@@ -3,7 +3,7 @@
 <p>Display editable form information</p>
 <p>Link to log out</p>
 
-<% if @current_user %>
+<% if current_user %>
 	<%= form_tag '/sessions/destroy' do%>
 	<%= submit_tag ("Log Out") %>
 	<% end %>
