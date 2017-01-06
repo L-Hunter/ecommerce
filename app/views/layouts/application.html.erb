@@ -11,11 +11,11 @@
   <body>
   <h1>Oh, hi! I'm a Store</h1>
   <a href="/products">View All Products</a>
-  <a href="/users">Log in or Sign up</a>
-  <a href="/wishlists">Wishlist</a>
-  <a href="/carts">Shopping Cart</a>
+  <% if !current_user %>
+    <a href="/users">Log in or Sign up</a>
+  <% end %> 
   <% if current_user %>
-	<a href="/users/<%= "#{session[:user_id]}" %> ">See Your Profile</a>
+  	<a href="/users/<%= "#{session[:user_id]}" %> ">See Your Stuff</a>
   <% end %>
     <%= yield %>
 
