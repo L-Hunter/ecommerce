@@ -24,4 +24,11 @@
 	<img src="<%= product.image %>">
 <% end %>
 
+<h3>Your Wishlist</h3>
+<% @wishlist.products.each do |product| %>
+	<%= product.pname %>
+	<%= product.price %>
+	<img src="<%= product.image %>">
+<% end %>
+
 <% end %>
