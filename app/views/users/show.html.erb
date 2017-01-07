@@ -1,5 +1,4 @@
 <h2>Welcome, <%= @user.fname %>!</h2>
-<p>Display editable form information</p>
 
 <% if current_user %>
 	<%= form_tag '/sessions/destroy' do%>
@@ -17,18 +16,28 @@
 	
 	<p><a href='/users/<%= "#{session[:user_id]}" %>/edit'>Edit your info</a></p>
 
-<h3>Your Cart</h3>
-<% @cart.products.each do |product| %>
-	<%= product.pname %>
-	<%= product.price %>
-	<img src="<%= product.image %>">
-<% end %>
+  <h3>Your Cart</h3>
+	<% @cart.products.each do |product| %>
+		<%= product.pname %>
+		<%= product.price %>
+		<img src="<%= product.image %>">
 
-<h3>Your Wishlist</h3>
-<% @wishlist.products.each do |product| %>
-	<%= product.pname %>
-	<%= product.price %>
-	<img src="<%= product.image %>">
-<% end %>
+		<%= form_tag "/carts/delete_from_cart/" do %>
+			<%= hidden_field_tag :product_id, product.id %>
+			<%= submit_tag ("Remove from Cart")%>
+		<% end %>
+	<% end %>
+
+  <h3>Your Wishlist</h3>
+	<% @wishlist.products.each do |product| %>
+		<%= product.pname %>
+		<%= product.price %>
+		<img src="<%= product.image %>">
+
+		<%= form_tag "/wishlists/delete_from_wishlist/" do %>
+			<%= hidden_field_tag :product_id, product.id %>
+	  		<%= submit_tag ("Remove from Wishlist")%>
+		<% end %>
+	<% end %>
 
 <% end %>
