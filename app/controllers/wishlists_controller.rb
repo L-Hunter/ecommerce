@@ -1,4 +1,5 @@
 class WishlistsController < ApplicationController
+  
   before_action :set_wishlist, only: [:show, :edit, :update, :destroy]
   
   def index
@@ -21,11 +22,27 @@ class WishlistsController < ApplicationController
   end
 
   def update
-    @wishlist.update
+    @wishlist.update(wishlist_params)
     redirect_to @wishlist
   end
 
   def destroy
+    @wishlist.destroy
+    redirect_to '/'
+  end
+
+  def add_to_wishlist
+    @user = User.find(session[:user_id])
+    @product = Product.find(params[:product_id])
+    @user.wishlist.products.push(@product)
+    redirect_to @user.wishlist
+  end
+
+  def delete_from_wishlist
+    @user = User.find(session[:user_id])
+    @product = Product.find(params[:product_id])
+    @user.wishlist.products.delete(@product)
+    redirect_to @user.wishlist
   end
 
 private

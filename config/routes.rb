@@ -7,4 +7,6 @@ Rails.application.routes.draw do
  	post '/sessions/destroy'
 
  	post '/carts/add_to_cart'
+
+ 	post '/wishlists/add_to_wishlist'
 end
