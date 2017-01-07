@@ -8,5 +8,10 @@ Rails.application.routes.draw do
 
  	post '/carts/add_to_cart'
 
+ 	post '/carts/delete_from_cart'
+
  	post '/wishlists/add_to_wishlist'
+
+ 	post '/wishlists/delete_from_wishlist'
+
 end
