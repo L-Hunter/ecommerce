@@ -29,3 +29,10 @@
 <%= f.submit "Update" %>
 
 <% end %>
+
+
+<h3>Done for good?</h3>
+<img src="http://www.jenkelchner.com/wp-content/uploads/2012/05/il_fullxfull.336032579.jpg">
+
+<p><%= link_to "Delete My Account", @user, method: :delete,
+                                  data: { confirm: "Are you really going?" } %> </p>
