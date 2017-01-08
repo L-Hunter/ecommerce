@@ -1,5 +1,7 @@
-<h2>Products Index: All Products</h2>
-<h3>Search box here</h3>
+<% if @products.blank? %>
+  <h4>There are no products containing the term <%= params[:search] %>.</h4>
+<% end %>
+
 <% @products.each do |product| %>
 	<div style="float:left;padding:5px">
 	<h4><%= product.pname %></h4>
