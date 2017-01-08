@@ -1,30 +1,71 @@
 <h2>Sign up for a new account</h2>
 
-<%= form_for User.new do |f| %>
-<%= f.label :fname, "First Name: " %>
-<%= f.text_field :fname %>
+<div>
+	<%= form_for User.new do |f| %>
+		<div class="row">
+			<div class="col-sm-2">
+				<%= f.label :fname, "First Name: " %>
+			</div>
+			<div class="col-sm-3">
+				<%= f.text_field :fname %>
+			</div>
+			<div class="col-sm-2">
+				<%= f.label :lname, "Last Name: " %>
+			</div>
+			<div class="col-sm-5">
+				<%= f.text_field :lname %>
+			</div>
+		</div>
 
-<%= f.label :lname, "Last Name: " %>
-<%= f.text_field :lname %> <br>
+		<div class="row">
+			<div class="col-sm-2">
+				<%= f.label :street, "Street Address: " %>
+			</div>
+			<div class="col-sm-3">
+				<%= f.text_field :street %>
+			</div>
+			<div class="col-sm-2">
+				<%= f.label :city, "City: " %>
+			</div>
+			<div class="col-sm-5">
+				<%= f.text_field :city %>
+			</div>
+		</div>
 
-<%= f.label :street, "Street Address: " %>
-<%= f.text_field :street %>
+		<div class="row">
+			<div class="col-sm-2">
+				<%= f.label :email, "Email: " %>
+			</div>
+			<div class="col-sm-3">
+				<%= f.text_field :email %>
+			</div>
+			<div class="col-sm-2">
+				<%= f.label :password, "Password: " %>
+			</div>
+			<div class="col-sm-5">
+				<%= f.text_field :password %>
+			</div>
+		</div>
 
-<%= f.label :city, "City: " %>
-<%= f.text_field :city %> <br>
+		<div class="row">
+			<div class="col-sm-2">
+				<%= f.label :cctype, "Credit Card Company: " %>
+			</div>
+			<div class="col-sm-3">
+				<%= f.text_field :cctype %>
+			</div>
+			<div class="col-sm-2">
+				<%= f.label :ccnum, "Credit Card Number: " %>
+			</div>
+			<div class="col-sm-5">
+				<%= f.text_field :ccnum, placeholder: "xxxx-xxxx-xxxx-xxxx"%>
+			</div>
+		</div>
 
-<%= f.label :email, "Email: " %>
-<%= f.text_field :email %>
-
-<%= f.label :password, "Password: " %>
-<%= f.text_field :password %> <br>
-
-<%= f.label :ccnum, "Credit Card Number: " %>
-<%= f.text_field :ccnum, placeholder: "xxxx-xxxx-xxxx-xxxx"%> <br>
-
-<%= f.label :cctype, "Credit Card Company: " %>
-<%= f.text_field :cctype %> <br>
-
-<%= f.submit "Sign Up" %>
-
-<% end %>
+		<div class="row">
+			<div class="col-sm-12 text-left">
+				<%= f.submit "Sign Up" %>
+			</div>
+		</div>
+	<% end %>
+</div>

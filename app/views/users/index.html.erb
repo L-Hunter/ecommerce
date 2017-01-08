@@ -1,34 +1,29 @@
 
-<div>
-	<h2>Log in to your account</h2>
+<div class="row">
 
-	<%=form_tag "/sessions" do %>
-	    <%=label_tag (:email)%>
-	    <%=text_field_tag (:email)%><br>
+	<div class="col-sm-8">
+		<h2>Log in to Your Account</h2>
 
-	    <%=label_tag (:password)%>
-	    <%=text_field_tag (:password)%><br>
+		<%=form_tag "/sessions" do %>
+			<div class="row">
+		    	<div class="col-sm-1 text-left"><%=label_tag (:email)%></div>
+		    	<div class="col-sm-11"><%=text_field_tag (:email)%></div>
+			</div>
 
-	    <%=submit_tag ("Log In")%>
+			<div class="row">
+		    	<div class="col-sm-1 text-left"><%=label_tag (:password)%></div>
+		    	<div class="col-sm-11"><%=text_field_tag (:password)%></div>
+		    </div>
 
-	<% end %>
+		    <div class="col-sm-12 text-left">
+		    	<%=submit_tag ("Log In")%>
+		    </div>
+		<% end %>
+	</div>
+
+	<div class="col-sm-4">
+		<h2>Create an Account</h2>
+		<p>Sign up <a href="/users/new">here</a>!</p>
+	</div>
+
 </div>
-
-<div>
-	<h2>New User?</h2>
-	<p>Sign up <a href="/users/new">here</a>!</p>
-</div>
-
-
-<h3>Users Index: All Users</h3>
-
-<% @users.each do |user| %>
-	<h4><%= user.fname %>
-	<%= user.lname %></h4>
-	<p>Email Stuff: <%= user.email %>
-	<%= user.password %></p>
-	<p>Credit Card Info: <%= user.ccnum %>
-	<%= user.cctype %></p>
-	<p>Address: <%= user.street %>,
-	<%= user.city %></p>
-<% end %>

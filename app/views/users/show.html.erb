@@ -1,52 +1,96 @@
+
+
 <h2>Welcome, <%= @user.fname %>!</h2>
 
-<% if current_user %>
-	<%= form_tag '/sessions/destroy' do%>
-	<%= submit_tag ("Log Out") %>
-	<% end %>
 
-	<h4><%= @user.fname %>
-	<%= @user.lname %></h4>
-	<p>Email Stuff: <%= @user.email %>
-	<%= @user.password %></p>
-	<p>Credit Card Info: <%= @user.ccnum %>
-	<%= @user.cctype %></p>
-	<p>Address: <%= @user.street %>,
-	<%= @user.city %></p>
-	
-	<p><a href='/users/<%= "#{session[:user_id]}" %>/edit'>Edit Your Account</a></p>
+<div class="row">
 
-  <h3>Your Cart</h3>
-  	<% total = 0.00 %>
-	<% @cart.products.each do |product| %>
-		<% total += product.price.to_f %>
-		<div>
-<!-- 		<img src="<%= product.image %>"> -->
-		<%= product.pname %>
-		<%= product.price %>
-		
-		<%= form_tag "/carts/delete_from_cart/" do %>
-			<%= hidden_field_tag :product_id, product.id %>
-			<%= submit_tag ("Remove from Cart")%>
-		<% end %>
+	<% if current_user %>
+		<div class="col-sm-8">
+		  	<h3>Your Cart</h3>
+		  	<% total = 0.00 %>
+			<% @cart.products.each do |product| %>
+				<% total += product.price.to_f %>
+				<div class="row">
+					<div class="col-sm-1">
+						<%= form_tag "/carts/delete_from_cart/" do %>
+						<%= hidden_field_tag :product_id, product.id %>
+						<%= submit_tag ("Remove")%>
+						<% end %>
+					</div>
+			<!-- 		<img src="<%= product.image %>"> -->
+					<div class="col-sm-4">
+						<%= product.pname %>
+					</div>
+					<div class="col-sm-7">
+						$<%= product.price %>
+					</div>
+
+				</div>
+			<% end %>
+			
+			<div class="row">
+				<div class="col-sm-5">
+					<p>FREE Shipping and Handling</p>
+				</div>
+				<div class="col-sm-7">
+					<p>$00.00</p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-5">
+					<p>Total: </p>
+				</div>
+				<div class="col-sm-2">
+					<p>$<%= total.round(2) %></p>
+				</div>
+				<div class="col-sm-5">
+					<%= form_tag "/carts/check_out/" do %>
+					<%= submit_tag ("Buy It Now!")%>
+					<% end %>
+				</div>
+
+			</div>
 		</div>
 	<% end %>
-	<p>Shipping: FREE!</p>
-	<h3>Total: $<%= total.round(2) %></h3>
-		<%= form_tag "/carts/check_out/" do %>
-		<%= submit_tag ("Buy It Now!")%>
-		<% end %>
 
-  <h3>Your Wishlist</h3>
-	<% @wishlist.products.each do |product| %>
-		<%= product.pname %>
-		<%= product.price %>
-		<img src="<%= product.image %>">
+	<% if current_user %>
+		<div class="col-sm-4">
+			<h4>Name: <%= @user.fname %>
+			<%= @user.lname %></h4>
+			<p>Email Stuff: <%= @user.email %>
+			<%= @user.password %></p>
+			<p>Credit Card Info: <%= @user.ccnum %>
+			<%= @user.cctype %></p>
+			<p>Address: <%= @user.street %>,
+			<%= @user.city %></p>
+			
+			<p><a href='/users/<%= "#{session[:user_id]}" %>/edit'>Edit Your Account</a></p>
 
-		<%= form_tag "/wishlists/delete_from_wishlist/" do %>
-			<%= hidden_field_tag :product_id, product.id %>
-	  		<%= submit_tag ("Remove from Wishlist")%>
+			<%= form_tag '/sessions/destroy' do%>
+			<%= submit_tag ("Log Out") %>
+			<% end %>
+		</div>
+	<% end %>
+</div>
+
+<div class="row">
+	<% if current_user %>
+	  <h3>Your Wishlist</h3>
+		<% @wishlist.products.each do |product| %>
+			<div class="col-sm-3">
+				<h4><%= product.pname %></h4>
+				<p>$<%= product.price %></p>
+				<img src="<%= product.image %>" class="img-responsive img-rounded">
+
+				<div class="btn">
+				<%= form_tag "/wishlists/delete_from_wishlist/" do %>
+					<%= hidden_field_tag :product_id, product.id %>
+			  		<%= submit_tag ("Remove from Wishlist")%>
+				<% end %>
+				</div>
+			</div>
 		<% end %>
 	<% end %>
-
-<% end %>
+</div>

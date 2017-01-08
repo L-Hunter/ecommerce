@@ -14,3 +14,15 @@
  *= require_self
 
  */
+body { 
+	padding-top: 100px; 
+}
+
+#wrapper {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.user-delete-img {
+	width: 60%;
+}
