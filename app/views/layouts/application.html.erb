@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Sundry Detritus</title>
+    <title>Sundry Detritus Emporium</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,7 +9,13 @@
   </head>
 
   <body>
-  <h1>Sundry Detritus</h1>
+  <h1>Sundry Detritus Emporium</h1>
+  
+  <%= form_tag(products_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Products" %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
+
   <a href="/products">Our Products</a>
   <% if !current_user %>
     <a href="/users">Log in or Sign up</a>
