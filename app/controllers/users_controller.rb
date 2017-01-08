@@ -27,7 +27,7 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
   end
 
   def update
-    @user.update
+    @user.update(user_params)
     redirect_to @user
   end
 
