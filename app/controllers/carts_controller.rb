@@ -42,7 +42,7 @@ before_action :set_cart, only: [:show, :edit, :update, :destroy]
     @user = User.find(session[:user_id])
     @product = Product.find(params[:product_id])
     @user.cart.products.delete(@product)
-    redirect_to @user.cart
+    redirect_to @user
   end
 
   def check_out

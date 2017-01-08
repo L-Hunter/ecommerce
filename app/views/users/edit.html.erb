@@ -1,37 +1,84 @@
 <h2>Update Your Account </h2>
 
-<%= form_for @user do |f| %>
+<div>
+	<%= form_for @user do |f| %>
 
-<%= f.label :fname, "First Name: " %>
-<%= f.text_field :fname %>
+		<div class="row">
+			<div class="col-sm-2">
+				<%= f.label :fname, "First Name: " %>
+			</div>
+			<div class="col-sm-3">
+				<%= f.text_field :fname %>
+			</div>
+			<div class="col-sm-2">
+				<%= f.label :lname, "Last Name: " %>
+			</div>
+			<div class="col-sm-5">
+				<%= f.text_field :lname %>
+			</div>
+		</div>
 
-<%= f.label :lname, "Last Name: " %>
-<%= f.text_field :lname %> <br>
+		<div class="row">
+			<div class="col-sm-2">
+				<%= f.label :street, "Street Address: " %>
+			</div>
+			<div class="col-sm-3">
+				<%= f.text_field :street %>
+			</div>
+			<div class="col-sm-2">
+				<%= f.label :city, "City: " %>
+			</div>
+			<div class="col-sm-5">
+				<%= f.text_field :city %>
+			</div>
+		</div>
 
-<%= f.label :street, "Street Address: " %>
-<%= f.text_field :street %>
+		<div class="row">
+			<div class="col-sm-2">
+				<%= f.label :email, "Email: " %>
+			</div>
+			<div class="col-sm-3">
+				<%= f.text_field :email %>
+			</div>
+			<div class="col-sm-2">
+				<%= f.label :password, "Password: " %>
+			</div>
+			<div class="col-sm-5">
+				<%= f.text_field :password %>
+			</div>
+		</div>
 
-<%= f.label :city, "City: " %>
-<%= f.text_field :city %> <br>
+		<div class="row">
+			<div class="col-sm-2">
+				<%= f.label :cctype, "Credit Card Company: " %>
+			</div>
+			<div class="col-sm-3">
+				<%= f.text_field :cctype %>
+			</div>
+			<div class="col-sm-2">
+				<%= f.label :ccnum, "Credit Card Number: " %>
+			</div>
+			<div class="col-sm-5">
+				<%= f.text_field :ccnum, placeholder: "xxxx-xxxx-xxxx-xxxx"%>
+			</div>
+		</div>
 
-<%= f.label :email, "Email: " %>
-<%= f.text_field :email %>
-
-<%= f.label :password, "Password: " %>
-<%= f.text_field :password %> <br>
-
-<%= f.label :ccnum, "Credit Card Number: " %>
-<%= f.text_field :ccnum, placeholder: "xxxx-xxxx-xxxx-xxxx"%> <br>
-
-<%= f.label :cctype, "Credit Card Company: " %>
-<%= f.text_field :cctype %> <br>
-
-<%= f.submit "Update" %>
-
-<% end %>
+		<div class="row">
+			<div class="col-sm-12 text-left">
+				<%= f.submit "Update" %>
+			</div>
+		</div>
+	<% end %>
+</div>
 
 
-<h3>Done for good?</h3>
-<img src="http://www.jenkelchner.com/wp-content/uploads/2012/05/il_fullxfull.336032579.jpg">
+<h2>Delete Your Account</h2>
+<div class="row">
+	<div class="col-sm-5">
+		<p><%= link_to "Delete My Account", @user, method: :delete, data: { confirm: "Are you really going?" } %> </p>
+	</div>
+	<div class="col-sm-7 text-left">
+		<img src="http://www.jenkelchner.com/wp-content/uploads/2012/05/il_fullxfull.336032579.jpg" class="img-circle user-delete-img">
+	</div>
 
-<p><%= link_to "Delete My Account", @user, method: :delete, data: { confirm: "Are you really going?" } %> </p>
+</div>
