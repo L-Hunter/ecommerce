@@ -1,10 +1,31 @@
-<p>Edit Your Information: </p>
-<form method="POST" action="/users/<%= "#{session[:user_id]}" %>/update">
-	<label for="name">Name:</label>
-	<input type="text" name="name"  placeholder="<%= @user.name %>" value="<%= @user.name %>">
-	<label for="email">Email: </label>
-	<input type="text" name="email" placeholder="<%= @user.email %>" value="<%= @user.email %>">
-	<label for="password">Password: </label>
-	<input type="text" name="password" placeholder="<%= @user.password %>" value="<%= @user.password %>">
-	<input type="submit">
-</form>
+<h2>Update Your Account </h2>
+
+<%= form_for @user do |f| %>
+
+<%= f.label :fname, "First Name: " %>
+<%= f.text_field :fname %>
+
+<%= f.label :lname, "Last Name: " %>
+<%= f.text_field :lname %> <br>
+
+<%= f.label :street, "Street Address: " %>
+<%= f.text_field :street %>
+
+<%= f.label :city, "City: " %>
+<%= f.text_field :city %> <br>
+
+<%= f.label :email, "Email: " %>
+<%= f.text_field :email %>
+
+<%= f.label :password, "Password: " %>
+<%= f.text_field :password %> <br>
+
+<%= f.label :ccnum, "Credit Card Number: " %>
+<%= f.text_field :ccnum, placeholder: "xxxx-xxxx-xxxx-xxxx"%> <br>
+
+<%= f.label :cctype, "Credit Card Company: " %>
+<%= f.text_field :cctype %> <br>
+
+<%= f.submit "Update" %>
+
+<% end %>
