@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
  	post '/carts/delete_from_cart'
 
+ 	post 'carts/check_out'
+
  	post '/wishlists/add_to_wishlist'
 
  	post '/wishlists/delete_from_wishlist'

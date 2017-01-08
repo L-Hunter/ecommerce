@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ecommerce</title>
+    <title>Sundry Detritus</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,13 +9,13 @@
   </head>
 
   <body>
-  <h1>Oh, hi! I'm a Store</h1>
-  <a href="/products">View All Products</a>
+  <h1>Sundry Detritus</h1>
+  <a href="/products">Our Products</a>
   <% if !current_user %>
     <a href="/users">Log in or Sign up</a>
   <% end %> 
   <% if current_user %>
-  	<a href="/users/<%= "#{session[:user_id]}" %> ">See Your Stuff</a>
+  	<a href="/users/<%= "#{session[:user_id]}" %> ">Your Account</a>
   <% end %>
     <%= yield %>
 

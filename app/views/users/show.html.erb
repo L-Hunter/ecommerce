@@ -17,16 +17,25 @@
 	<p><a href='/users/<%= "#{session[:user_id]}" %>/edit'>Edit your info</a></p>
 
   <h3>Your Cart</h3>
+  	<% total = 0.00 %>
 	<% @cart.products.each do |product| %>
+		<% total += product.price.to_f %>
+		<div>
+<!-- 		<img src="<%= product.image %>"> -->
 		<%= product.pname %>
 		<%= product.price %>
-		<img src="<%= product.image %>">
-
+		
 		<%= form_tag "/carts/delete_from_cart/" do %>
 			<%= hidden_field_tag :product_id, product.id %>
 			<%= submit_tag ("Remove from Cart")%>
 		<% end %>
+		</div>
 	<% end %>
+	<p>Shipping: FREE!</p>
+	<h3>Total: $<%= total.round(2) %></h3>
+		<%= form_tag "/carts/check_out/" do %>
+		<%= submit_tag ("Buy It Now!")%>
+		<% end %>
 
   <h3>Your Wishlist</h3>
 	<% @wishlist.products.each do |product| %>

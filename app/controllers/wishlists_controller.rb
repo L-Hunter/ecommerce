@@ -35,14 +35,16 @@ class WishlistsController < ApplicationController
     @user = User.find(session[:user_id])
     @product = Product.find(params[:product_id])
     @user.wishlist.products.push(@product)
-    redirect_to @user.wishlist
+    # redirect_to @user.wishlist
+    redirect_to @user
   end
 
   def delete_from_wishlist
     @user = User.find(session[:user_id])
     @product = Product.find(params[:product_id])
     @user.wishlist.products.delete(@product)
-    redirect_to @user.wishlist
+    # redirect_to @user.wishlist
+    redirect_to @user
   end
 
 private
