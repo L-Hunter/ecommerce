@@ -23,6 +23,11 @@
   <% if current_user %>
   	<a href="/users/<%= "#{session[:user_id]}" %> ">Your Account</a>
   <% end %>
+
+  <% if !current_user %>
+    <h2>Log in to Start Shopping</h2>
+  <% end %> 
+  
     <%= yield %>
 
 

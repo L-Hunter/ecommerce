@@ -8,15 +8,17 @@
 	<p>Price: $<%= product.price %></p>
 	<img src="<%= product.image %>">
 	
-	<%= form_tag '/wishlists/add_to_wishlist' do %>
-	<%= hidden_field_tag :product_id, product.id %>
-	<%= submit_tag ("Add to Wishlist")%>
+	<% if current_user %>
+		<%= form_tag '/wishlists/add_to_wishlist' do %>
+		<%= hidden_field_tag :product_id, product.id %>
+		<%= submit_tag ("Add to Wishlist")%>
+		<% end %>
+		
+		<%= form_tag '/carts/add_to_cart' do %>
+		<%= hidden_field_tag :product_id, product.id %>
+		<%= submit_tag ("Add to Cart")%>
+		<% end %>
 	<% end %>
-	
-	<%= form_tag '/carts/add_to_cart' do %>
-	<%= hidden_field_tag :product_id, product.id %>
-	<%= submit_tag ("Add to Cart")%>
-	<% end %>
-	
+
 	</div>
 <% end %>
