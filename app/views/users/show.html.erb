@@ -43,7 +43,7 @@
 					<p>Total: </p>
 				</div>
 				<div class="col-sm-2">
-					<p>$<%= total.round(2) %></p>
+					<p>$<%= sprintf('%.2f', total) %></p>
 				</div>
 				<div class="col-sm-5">
 					<%= form_tag "/carts/check_out/" do %>
