@@ -1,7 +1,7 @@
 
-<div class="row">
+<div>
 
-	<div class="col-sm-8">
+<!-- 	<div class="col-sm-8"> -->
 		<h2>Log in to Your Account</h2>
 
 		<%=form_tag "/sessions" do %>
@@ -12,18 +12,21 @@
 
 			<div class="row">
 		    	<div class="col-sm-1 text-left"><%=label_tag (:password)%></div>
-		    	<div class="col-sm-11"><%=text_field_tag (:password)%></div>
-		    </div>
-
-		    <div class="col-sm-12 text-left">
-		    	<%=submit_tag ("Log In")%>
+		    	<div class="col-sm-11"><%=text_field_tag (:password)%>
+		    		<div class="btn"><%=submit_tag ("Log In")%></div>
+		    	</div>
 		    </div>
 		<% end %>
-	</div>
+<!-- 	</div> -->
 
-	<div class="col-sm-4">
+<!-- 	<div class="col-sm-4">
 		<h2>Create an Account</h2>
 		<p>Sign up <a href="/users/new">here</a>!</p>
-	</div>
+	</div> -->
 
+</div>
+
+<div>
+	<h2>Create an Account</h2>
+	<%= render 'form' %>
 </div>

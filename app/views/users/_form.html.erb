@@ -1,0 +1,78 @@
+<div>
+	<%= form_for User.new do |f| %>
+		<% if @user.errors.any? %>
+      		<% @user.errors.full_messages.each do |message| %>
+       		<li><%= message %></li>
+      		<% end %>
+    	<% end %>
+
+		<div class="row">
+			<div class="col-sm-2">
+				<%= f.label :fname, "First Name: " %>
+			</div>
+			<div class="col-sm-3">
+				<%= f.text_field :fname %>
+			</div>
+			<div class="col-sm-2">
+				<%= f.label :lname, "Last Name: " %>
+			</div>
+			<div class="col-sm-5">
+				<%= f.text_field :lname %>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-2">
+				<%= f.label :street, "Street Address: " %>
+			</div>
+			<div class="col-sm-3">
+				<%= f.text_field :street %>
+			</div>
+			<div class="col-sm-2">
+				<%= f.label :city, "City: " %>
+			</div>
+			<div class="col-sm-5">
+				<%= f.text_field :city %>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-2">
+				<%= f.label :email, "Email: " %>
+			</div>
+			<div class="col-sm-3">
+				<%= f.text_field :email %>
+			</div>
+			<div class="col-sm-2">
+				<%= f.label :password, "Password: " %>
+			</div>
+			<div class="col-sm-5">
+				<%= f.text_field :password %>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-2">
+				<%= f.label :cctype, "Credit Card Company: " %>
+			</div>
+			<div class="col-sm-3">
+				<%= f.text_field :cctype %>
+			</div>
+			<div class="col-sm-2">
+				<%= f.label :ccnum, "Credit Card Number: " %>
+			</div>
+			<div class="col-sm-5">
+				<%= f.text_field :ccnum, placeholder: "xxxx-xxxx-xxxx-xxxx"%>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-2">
+				<%= f.label "Confirm Password: " %>
+			</div>
+			<div class="col-sm-10">
+				<%= f.text_field :password_confirmation %>
+				<div class="btn"><%= f.submit "Sign Up" %></div>
+			</div>
+		</div>
+	<% end %>
+</div<%
