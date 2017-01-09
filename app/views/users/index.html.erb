@@ -12,11 +12,9 @@
 
 			<div class="row">
 		    	<div class="col-sm-1 text-left"><%=label_tag (:password)%></div>
-		    	<div class="col-sm-11"><%=text_field_tag (:password)%></div>
-		    </div>
-
-		    <div class="col-sm-12 text-left">
-		    	<%=submit_tag ("Log In")%>
+		    	<div class="col-sm-11"><%=text_field_tag (:password)%>
+		    		<div class="btn"><%=submit_tag ("Log In")%></div>
+		    	</div>
 		    </div>
 		<% end %>
 <!-- 	</div> -->

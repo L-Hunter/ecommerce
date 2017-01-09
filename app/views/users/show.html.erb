@@ -1,13 +1,14 @@
 
 
-<h2>Welcome, <%= @user.fname %>!</h2>
-
+<div>
+	<h2>Welcome, <%= @user.fname %>!</h2>
+</div>
 
 <div class="row">
 
 	<% if current_user %>
+		<h3>Your Cart</h3>
 		<div class="col-sm-8">
-		  	<h3>Your Cart</h3>
 		  	<% total = 0.00 %>
 			<% @cart.products.each do |product| %>
 				<% total += product.price.to_f %>
@@ -22,8 +23,11 @@
 					<div class="col-sm-4">
 						<%= product.pname %>
 					</div>
-					<div class="col-sm-7">
+					<div class="col-sm-1 text-right">
 						$<%= product.price %>
+					</div>
+					<div class="col-sm-6">
+						<p> </p>
 					</div>
 
 				</div>
@@ -33,8 +37,11 @@
 				<div class="col-sm-5">
 					<p>FREE Shipping and Handling</p>
 				</div>
-				<div class="col-sm-7">
-					<p>$00.00</p>
+				<div class="col-sm-1">
+					<p class="text-right">$00.00</p>
+				</div>
+				<div class="col-sm-6">
+					<p> </p>
 				</div>
 			</div>
 
@@ -42,10 +49,10 @@
 				<div class="col-sm-5">
 					<p>Total: </p>
 				</div>
-				<div class="col-sm-2">
-					<p>$<%= sprintf('%.2f', total) %></p>
+				<div class="col-sm-1">
+					<p class="text-right">$<%= sprintf('%.2f', total) %></p>
 				</div>
-				<div class="col-sm-5">
+				<div class="col-sm-6">
 					<%= form_tag "/carts/check_out/" do %>
 					<%= submit_tag ("Buy It Now!")%>
 					<% end %>
